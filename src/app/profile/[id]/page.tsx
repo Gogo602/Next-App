@@ -1,6 +1,6 @@
 
 
-export default function UserProfile({params}: any){
+export default function UserProfile({ params }: { params: { id: string } }) {
     return (
         <div className="flex items-center justify-center h-screen">
             <div>
