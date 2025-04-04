@@ -1,24 +1,50 @@
    "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Axios } from "axios";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
+
+        const router = useRouter();
     const [user, setUser] = React.useState({
         email: "",
         password: "",
     })
 
+     const [buttonDisabled, setButtonDisabled] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
+
     const onLogin = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.post("api/users/login", user);
+            console.log("login success", response.data);
+            toast.success("Login successful");
+            router.push("/profile");
+            
+        } catch (error: any) {
+            console.log("login failed", error.message)
+            toast.error(`Error: ${error.message || "An unexpected error occurred."}`);
+        } finally {
+            setLoading(false)
+        }
     }
 
+    useEffect(() => {
+            if (user.email.length > 0 && user.password.length > 0) {
+                setButtonDisabled(false);
+            } else {
+                setButtonDisabled(true);
+            }
+    }, [user]);
 
 
     return (
         <div className="flex items-center justify-center text-2xl h-screen">
             <div className="border border-gray-300 bg-gray-200 text-gray-900 p-8 rounded-xl shadow-2xl space-y-5">
-                <h1 className="text-2xl text-center">Login</h1>
+                <h1 className="text-2xl text-center">{loading ? "Processing" : "Login"}</h1>
                 <hr className="py-1"/>
 
                 <div>
@@ -48,7 +74,7 @@ export default function LoginPage() {
                     <button
                         onClick={onLogin}
                         className="w-full text-center py-1 bg-green-500 text-green-50 rounded-md">
-                        Login
+                        {buttonDisabled ? "No Login" : "Login"}
                     </button>
                 </div>
                 <div className="text-gray-900 text-sm">
