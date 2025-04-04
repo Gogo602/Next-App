@@ -75,7 +75,7 @@ export default function SignupPage() {
                     <label htmlFor="password" className="pb-2">password</label>
                     <input
                         className="border rounded-md px-3 w-full py-1 placeholder:text-sm"
-                        type="password]"
+                        type="password"
                         id="password"
                         value={user.password}
                         onChange={(e) => setUser({ ...user, password: e.target.value })}
