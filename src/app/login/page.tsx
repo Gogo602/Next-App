@@ -18,13 +18,13 @@ export default function LoginPage() {
     return (
         <div className="flex items-center justify-center text-2xl h-screen">
             <div className="border border-gray-300 bg-gray-200 text-gray-900 p-8 rounded-xl shadow-2xl space-y-5">
-                <h1>Login</h1>
+                <h1 className="text-2xl text-center">Login</h1>
                 <hr className="py-1"/>
 
                 <div>
-                    <label htmlFor="email" className="mr-2">email</label>
+                    <label htmlFor="email" className="pb-2">email</label>
                     <input
-                        className="border rounded-md px-3 w-full"
+                        className="border rounded-md px-3 w-full  py-1 placeholder:text-sm"
                         type="email"
                         id="email"
                         value={user.email}
@@ -34,9 +34,9 @@ export default function LoginPage() {
                 </div>
 
                 <div>
-                    <label htmlFor="password" className="mr-2">password</label>
+                    <label htmlFor="password" className="pb-2">password</label>
                     <input
-                        className="border rounded-md px-3 w-full"
+                        className="border rounded-md px-3 w-full  py-1 placeholder:text-sm"
                         type="password]"
                         id="password"
                         value={user.password}
@@ -48,7 +48,7 @@ export default function LoginPage() {
                     <button
                         onClick={onLogin}
                         className="w-full text-center py-1 bg-green-500 text-green-50 rounded-md">
-                        Register
+                        Login
                     </button>
                 </div>
                 <div className="text-gray-900 text-sm">
