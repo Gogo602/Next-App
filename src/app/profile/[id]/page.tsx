@@ -1,9 +1,7 @@
 'use client';
 
-
-
 import type { NextPage } from 'next';
-import { useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 interface Props {
   params: {
@@ -12,8 +10,8 @@ interface Props {
 }
 
 const UserProfile: NextPage<Props> = () => {
-  const router = useRouter();
-  const { id } = router.query as { id: string }; // Access route parameters using useRouter
+  const params = useParams<{ id: string }>();
+  const { id } = params;
 
   return (
     <div className="flex items-center justify-center h-screen">
