@@ -1,27 +1,12 @@
-'use client';
+export default function UserProfile({params}: any) {
+    return (
+        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+            <h1>Profile</h1>
+            <hr />
+            <p className="text-4xl">Profile page 
+            <span className=" p-2 ml-2 rounded bg-orange-500 text-black">{params.id}</span>
+            </p>
 
-import type { NextPage } from 'next';
-import { useParams } from 'next/navigation';
-
-interface Props {
-  params: {
-    id: string;
-  };
+            </div>
+    )
 }
-
-const UserProfile: NextPage<Props> = () => {
-  const params = useParams<{ id: string }>();
-  const { id } = params;
-
-  return (
-    <div className="flex items-center justify-center h-screen">
-      <div>
-        <h1>Profile</h1>
-        <hr />
-        <p className='text-2xl'>Profile Page {id}</p>
-      </div>
-    </div>
-  );
-};
-
-export default UserProfile;
