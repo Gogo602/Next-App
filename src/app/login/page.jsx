@@ -24,7 +24,7 @@ export default function LoginPage() {
             toast.success("Login successful");
             router.push("/profile");
             
-        } catch (error: unknown) { 
+        } catch (error) { 
         if (error instanceof Error) {
             console.log("login failed", error.message)
             toast.error(`Error: ${error.message || "An unexpected error occurred."}`);
