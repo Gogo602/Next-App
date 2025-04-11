@@ -17,7 +17,7 @@ export default function ProfilePage() {
             toast.success('Logout successfull')
             router.push("/login")
 
-        } catch (error: unknown) {
+        } catch (error) {
             console.log(error.message)
             toast.error(`Error: ${error.message || "An unexpected error occurred."}`);
         }
