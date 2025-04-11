@@ -1,12 +1,8 @@
-import type { NextPage } from 'next';
-
 interface Props {
-  params: {
-    id: string;
-  };
+  params: { id: string };
 }
 
-const UserProfile: NextPage<Props> = ({ params }) => {
+export default function UserProfile({ params }: Props) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1>Profile</h1>
@@ -17,6 +13,4 @@ const UserProfile: NextPage<Props> = ({ params }) => {
       </p>
     </div>
   );
-};
-
-export default UserProfile;
+}
