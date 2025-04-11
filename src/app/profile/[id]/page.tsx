@@ -1,5 +1,12 @@
+import type { NextPage } from 'next';
 
-export default function UserProfile({ params }: never) {
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
+const UserProfile: NextPage<Props> = ({ params }) => {
   return (
     <div className="flex items-center justify-center h-screen">
       <div>
@@ -11,8 +18,4 @@ export default function UserProfile({ params }: never) {
   );
 };
 
-
-
-
-
-    
+export default UserProfile;
