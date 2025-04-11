@@ -1,8 +1,6 @@
-interface Props {
-  params: { id: string };
-}
 
-export default function UserProfile({ params }: Props) {
+
+export default function UserProfile({ params }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1>Profile</h1>
