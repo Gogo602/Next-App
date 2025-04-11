@@ -1,5 +1,5 @@
 
-export default function UserProfile({ params }: any) {
+export default function UserProfile({ params }: never) {
   return (
     <div className="flex items-center justify-center h-screen">
       <div>
