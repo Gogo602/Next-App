@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
             success: true
         })
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         return NextResponse.json({ error: error.message },
             {status: 500}
         )

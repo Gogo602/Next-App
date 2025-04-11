@@ -8,7 +8,7 @@ import jwt from "jsonwebtoken"
 
 connect()
 
-export async function POST(request: NextResquest) {
+export async function POST(request: NextRequest) {
     try {
         const reqBody = request.json()
         const { email, password } = await reqBody;
@@ -47,7 +47,7 @@ export async function POST(request: NextResquest) {
         })
         return response;
         
-    } catch (error: any) {
+    } catch (error: unknown) {
         return NextResponse.json({ error: error.message }, 
             { status: 500 }
         )

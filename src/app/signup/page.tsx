@@ -25,7 +25,7 @@ export default function SignupPage() {
              toast.success("Account Registered successfully");
             router.push("/login");
 
-        } catch (error: any) {
+        } catch (error: unknown) {
             toast.error(`Error: ${error.message || "An unexpected error occurred."}`);
         } finally {
             setLoading(false)
