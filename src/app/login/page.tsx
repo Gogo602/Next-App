@@ -24,14 +24,18 @@ export default function LoginPage() {
             toast.success("Login successful");
             router.push("/profile");
             
-        } catch (error: unknown) {
+        } catch (error: unknown) { 
+        if (error instanceof Error) {
             console.log("login failed", error.message)
             toast.error(`Error: ${error.message || "An unexpected error occurred."}`);
-        } finally {
+        } else {
+            console.error("An unexpected error occurred:", error);
+        }
+    } finally {
             setLoading(false)
         }
     }
-
+    
     useEffect(() => {
             if (user.email.length > 0 && user.password.length > 0) {
                 setButtonDisabled(false);
